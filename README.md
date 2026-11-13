@@ -1,166 +1,166 @@
-## 🌦️ Diseño del proyecto
+## 🌦️ Project Design
 
-📊 Analizador Climático – ClimaPy
+📊 Climate Analyzer – ClimaPy
 
-ClimaPy es una aplicación desarrollada en Python que permite consultar y analizar información meteorológica de cualquier ciudad, especificando también su país. Obtiene datos climáticos en tiempo real de una fuente confiable en Internet para que los usuarios puedan ver la temperatura, velocidad del viento y otros aspectos del clima.
+ClimaPy is an application developed in Python that allows checking and analyzing meteorological information of any city, also specifying its country. It obtains real-time climate data from a reliable source on the Internet so that users can see the temperature, wind speed, and other aspects of the climate.
 
- **Diferencias del proyecto:**
+**Project differences:**
 
-📁 Crea un historial de datos de diferentes ciudades.
+📁 Creates a data history of different cities.
 
-📊 Genera gráficos para su fácil comprensión.
+📊 Generates charts for easy understanding.
 
-📝 Permite documentación y análisis de datos climáticos.
+📝 Allows documentation and analysis of climate data.
 
 
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-El usuario tendrá que introducir los datos mediante la consola, introduciendo el país y la ciudad.
+The user will have to enter the data through the console, entering the country and the city.
 
 ![introducirDatos](imagenesGithub/solicitudDatos.png)
 
 
 
-Una vez solicitados estos datos:
+Once this data is requested:
 
-Se obtendrá la latitud y la longitud mediante una primera API.
+The latitude and longitude will be obtained through a first API.
 
-Después se llamará a una segunda API, pasándole la latitud y longitud obtenidas.
+Then a second API will be called, passing it the obtained latitude and longitude.
 
-Con estas coordenadas se obtendrá información del clima en tiempo real.
+With these coordinates, real-time climate information will be obtained.
 
-Los datos obtenidos se almacenarán en un archivo Excel, que actuará como base de datos con columnas para la información climática.
+The obtained data will be stored in an Excel file, which will act as a database with columns for the climate information.
 
-En nuestro caso hemos elegido **Excel**
+In our case we have chosen **Excel**
 ![introducirDatos](imagenesGithub/baseDeDatosExcel.png)
 
-El menú principal contará con 10 opciones:
+The main menu will have 10 options:
 
 ![introducirDatos](imagenesGithub/menu.png)
 
-Las opciones 1 y 2 servirán para introducir y eliminar registros climáticos en Excel.
+Options 1 and 2 will be used to enter and delete climate records in Excel.
 
-El resto de opciones (excepto la 10) usarán Pandas para filtrar datos.
+The rest of the options (except 10) will use Pandas to filter data.
 
-Los datos filtrados se usarán para construir gráficos con Plotly para comparar cambios climáticos.
+The filtered data will be used to build charts with Plotly to compare climate changes.
 
-**Gráfico de barras**
+**Bar chart**
 ![introducirDatos](imagenesGithub/graficoBarrasIndiviidualesTiempo.png)
 
 
-**Gráfico de barrasAgrupado**
+**Grouped bar chart**
 ![introducirDatos](imagenesGithub/graficoBarras.png)
 
 
-**Gráfico radial**
+**Radar chart**
 ![introducirDatos](imagenesGithub/graficoRadial.png)
 
 
 
 
-## 🏗️ Estructura y funcionalidad principal
+## 🏗️ Structure and Main Functionality
 
-Las funciones principales de la aplicación permiten al usuario obtener información del clima en tiempo real de un país y ciudad mediante una interfaz gráfica o consola.
+The main functions of the application allow the user to obtain real-time climate information of a country and city through a graphical interface or console.
 
-El usuario podrá consultar:
+The user will be able to check:
 
-**🌡️ Temperatura en grados Celsius (°C)**
+**🌡️ Temperature in degrees Celsius (°C)**
 
-**🏔️ Altitud**
+**🏔️ Altitude**
 
-**💨 Velocidad del viento**
+**💨 Wind speed**
 
-**🧭 Dirección del viento:**
+**🧭 Wind direction:**
 
-Norte
+North
 
-Sur
+South
 
-Este
+East
 
-Oeste
+West
 
-Suroeste
+Southwest
 
-Noroeste
+Northwest
 
-**☁️ Estado del clima:**
+**☁️ Weather condition:**
 
-Nublado
+Cloudy
 
-Despejado
+Clear
 
-Lloviendo
+Raining
 
-Soleado
+Sunny
 
-Además podrá consultar:
+In addition, they will be able to check:
 
-**🔺 Temperatura máxima**
+**🔺 Maximum temperature**
 
-**🌪️ Máxima velocidad del viento**
+**🌪️ Maximum wind speed**
 
-## 🧩 Clases del proyecto
+## 🧩 Project Classes
 
 
 ![introducirDatos](imagenesGithub/estructuraProyecto.png)
 
 
 
-Se contará con cuatro clases principales:
+There will be four main classes:
 
-**1️⃣ Clase Main**
+**1️⃣ Main Class**
 
-La clase Main es la encargada del funcionamiento principal de la aplicación. Controla la interacción del usuario e inicia las consultas cuando se introducen los datos en la aplicación.
+The Main class is in charge of the main operation of the application. It controls user interaction and starts the queries when data is entered into the application.
 
-**2️⃣ Clase ApiClient**
+**2️⃣ ApiClient Class**
 
-La clase ApiClient es la encargada de realizar las llamadas a las correspondientes APIs para obtener:
+The ApiClient class is in charge of making calls to the corresponding APIs to obtain:
 
-Latitud
+Latitude
 
-Longitud
+Longitude
 
-Datos climáticos en tiempo real
+Real-time climate data
 
-**3️⃣ Clase Analisis**
+**3️⃣ Analisis Class**
 
-La clase Analisis sirve para filtrar los datos que el usuario desea obtener, permitiendo procesar la información almacenada en Excel y preparar los datos para su análisis y visualización.
+The Analisis class is used to filter the data that the user wants to obtain, allowing the information stored in Excel to be processed and preparing the data for its analysis and visualization.
 
-**4️⃣ Clase interfaz**
+**4️⃣ Interfaz Class**
 
-Esta clase Interfaz sirve para procesar los datos que se han almacenado en excel, y generar gráficos con ellos
+This Interfaz class is used to process the data that has been stored in Excel, and generate charts with it
 
 
-## 📰 Diagrama de Flujo
+## 📰 Flowchart
 
 ```
-INICIO
-   ↓
-Mostrar mensaje de bienvenida
-   ↓
-Solicitar país y ciudad
-   ↓
-¿Datos válidos?
-   ↓           ↓
-  NO           SÍ
-   ↓           ↓
-Mostrar error  Conectar con API
-               ↓
-        ¿Respuesta correcta?
-               ↓         ↓
-              NO         SÍ
-               ↓          ↓
-        Mostrar error   Procesar datos
-                          ↓
-                    Mostrar información
-                          ↓
-                   Guardar en historial
-                          ↓
-                   Generar gráfico
-                          ↓
-                         FIN
+START
+↓
+Show welcome message
+↓
+Request country and city
+↓
+Valid data?
+↓           ↓
+NO          YES
+↓           ↓
+Show error  Connect with API
+↓
+Correct response?
+↓         ↓
+NO        YES
+↓         ↓
+Show error    Process data
+↓
+Show information
+↓
+Save in history
+↓
+Generate chart
+↓
+END
 ```
 
 
